@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     # Third libraries
     'bulma',
     'sass_processor',
-    'django_cleanup',  # 古い画像データを削除してくれる？
-    'imagekit',  # リサイズしてくれる
+    'django_cleanup',  # 古い画像データを削除してくれる
+    'imagekit',  # モデルに描いておけば描いたサイズの画像を作ってくれる
 ]
 
 MIDDLEWARE = [

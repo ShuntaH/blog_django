@@ -13,51 +13,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {# Load CSS and JavaScript #}
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% sass_src 'blog/css/style.css' %}">
+    {% block css %}
+        {% font_awesome %}
+        <link rel="stylesheet" href="{% sass_src 'blog/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'bulma/css/style.min.css' %}">
+        {% block extra_css %}{% endblock extra_css %}
+    {% endblock css %}
     <title>{% block title %}Blog{% endblock %}</title>
 </head>
 
 
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="{% url "blog:index" %}">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo">
-        </a>
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-           data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+{% block header %}
+    <div class="container">
+
     </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="{% url "admin:index" %}">Admin</a>
-            <a class="navbar-item">Documentation</a>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">More</a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">About</a>
-                    <a class="navbar-item">Jobs</a>
-                    <a class="navbar-item">Contact</a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">Report an issue</a>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{% url "blog:index" %}">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo">
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+               data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{% url "admin:index" %}">Admin</a>
+                <a class="navbar-item">Documentation</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">More</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">About</a>
+                        <a class="navbar-item">Jobs</a>
+                        <a class="navbar-item">Contact</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">Report an issue</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-primary" type="text" placeholder="Primary input">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-primary" type="text" placeholder="Primary input">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
+{% endblock header %}
 
 <div class="columns">
     <div class="column is-two-thirds">
@@ -67,12 +76,37 @@
     <div class="column">Category</div>
 </div>
 
-
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p><strong>Blog</strong> by <a href="https://github.com/ShuntaH">Shunta.H</a>.</p>
+<secition class="section">
+    <div class="container">
+        {% block messages %}
+        {% if messages %}
+        <div class="messages columns is-desktop">
+            <div class="column is-4 if-offset-4">
+                {% for message in messages %}
+                <div class="message {% if message.tags %}is-{{ message.tags|bulma_message_tag{% endif %} }}">
+                    <div class="message-body">{{ message }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
     </div>
-</footer>
+</secition>
+
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p><strong>Blog</strong> by <a href="https://github.com/ShuntaH">Shunta.H</a>.</p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascript %}
+    {% block extra_javascript %}{% endblock extra_javascript %}
+{% endblock javascript %}
+
 </body>
 </html>
 
