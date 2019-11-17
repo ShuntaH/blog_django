@@ -26,7 +26,7 @@ class Post(models.Model):
     title = models.CharField('Title', max_length=255)
     text = models.TextField('Content')
     created_at = models.DateTimeField('Created at', default=timezone.now)
-    image = models.ImageField(upload_to='images', default='blog/img/card1.jpg')
+    image = models.ImageField(upload_to='images')
     category = models.ForeignKey(Category, verbose_name='Category', on_delete=models.PROTECT)
 
     def __str__(self):
