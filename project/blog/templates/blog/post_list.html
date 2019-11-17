@@ -5,11 +5,11 @@
     {% for post in post_list %}
         <div class="card">
             <header class="card-header">
-                <h2 class="card-header-title has-text-weight-bold is-size-4">{{ post.title }}</h2>
+                <h2 class="card-header-title has-text-weight-bold is-size-3">{{ post.title }}</h2>
             </header>
             <div class="card-image">
-                <figure class="image is-5by2">
-                    <img src="{{ post.image.url }}" alt="Placeholder image">
+                <figure class="image">
+                    <img class="list-img" src="{{ post.image.url }}" alt="Placeholder image">
                 </figure>
             </div>
             <div class="card-content">
