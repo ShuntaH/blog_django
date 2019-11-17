@@ -7,6 +7,7 @@ from .models import Post
 
 class IndexView(generic.ListView):
     model = Post  # make html file name as model name + list.html
+    paginate_by = 5
 
     def get_queryset(self):
         return Post.objects.all().order_by('-created_at')  # 新しい投稿順
