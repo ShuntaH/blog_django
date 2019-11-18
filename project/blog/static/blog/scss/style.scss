@@ -29,12 +29,12 @@ section.wrapper {
   padding: 80px 140px 30px;
 
   .main-content {
-
+// post_list.html
   }
 
   .side-content {
     .profile {
-
+      margin-bottom: 36px;
     }
 
     .searchbox {
@@ -42,16 +42,20 @@ section.wrapper {
     }
 
     .category {
-      padding: 20px 0 50px 10px;
+      padding: 0;
+      margin-bottom: 36px;
       box-shadow: $border-color;
 
-      .menu-label {
-        margin-bottom: 0;
+      .category-title {
+        padding:14px 10px;
+
       }
 
-      .menu-list {
+      .category-list {
+        padding: 20px 10px 40px;
         li {
-          margin-bottom: 2px;
+          padding-left: 10px;
+          margin-bottom: 10px;
 
           a {
             padding-left: 0;
@@ -84,7 +88,7 @@ section.wrapper {
   }
 
   .card-content {
-    padding: 20px 10px 200px;
+    padding: 20px 10px 60px;
   }
 
 }

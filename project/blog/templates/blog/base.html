@@ -14,7 +14,7 @@
     {# Load CSS and JavaScript #}
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
     {% block css %}
-{#        {% font_awesome %}#}
+        {#        {% font_awesome %}#}
         <link rel="stylesheet" href="{% sass_src 'blog/scss/style.scss' %}">
         <link rel="stylesheet" href="{% static 'bulma/css/style.min.css' %}">
         {% block extra_css %}{% endblock extra_css %}
@@ -105,29 +105,54 @@
             </div>
             <div class="column is-narrow"></div>
             <div class="column side-content">
-                {% block profile %}{% endblock profile %}
-                {% block searchbox %}
-                    <div class="field has-addons searchbox">
-                        <div class="control">
-                            <label for="searcher">
-                                <input class="input" id="searcher" type="text" placeholder="Find Articles">
-                            </label>
-                        </div>
-                        <div class="control">
-                            <a class="button is-primary">Search</a>
+                {% block profile %}
+                    <div class="card profile">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-64x64">
+                                        <img src="{% static 'blog/images/icon2.jpg' %}" alt="Profile photo">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Hosaka.S</p>
+                                    <p class="subtitle is-6">@shuntaH</p>
+                                </div>
+                            </div>
+                            <p class="content">I love Thailand</p>
                         </div>
                     </div>
-                {% endblock searchbox %}
+                {% endblock %}
                 {% block  category %}
-                    <aside class="menu category has-background-white">
-                        <p class="menu-label has-text-weight-bold is-size-5">Category</p>
-                        <ul class="menu-list">
+                    <aside class="category">
+                        <p class=" category-title has-text-white  has-text-weight-bold is-size-5 has-background-black-bis">Category</p>
+                        <ul class="category-list">
                             {% for category in category_list %}
-                                <li class="has-text-grey"><a href="#">{{ category.name }}</a></li>
+                                <li class="has-text-grey">
+                                    <a href="{% url 'blog:category' category.pk %}">
+                                        {{ category }}
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </aside>
                 {% endblock category %}
+                {% block searchbox %}
+                    <form method="get" action="{% url 'blog:index' %}">
+                        {# actionが空だとdetailページに飛んでしまうので明示的に指定#}
+                        <div class="field has-addons searchbox">
+                            <div class="control">
+                                <label for="searcher">
+                                    <input class="input" id="searcher" name="keyword" type="text"
+                                           placeholder="Find Articles">
+                                </label>
+                            </div>
+                            <div class="control">
+                                <input type="submit" class="button is-primary" value="Search">
+                            </div>
+                        </div>
+                    </form>
+                {% endblock searchbox %}
             </div>
         </div>
     {% endblock main-area %}
