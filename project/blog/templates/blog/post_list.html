@@ -14,11 +14,16 @@
             </div>
             <div class="card-content">
                 <div class="content">
-                    <p>{{ post.text }}</p>
-                   <p>Created At:<time>{{ post.created_at }}</time></p>
+                    <p class="post-text">{{ post.text | truncatechars:250 }}</p>
+                    <div class="level">
+                        <a class="button is-info level-left" href="{% url 'blog:detail' post.pk %}">Read more</a>
+                        <div class="level-right">Created At:
+                            <time>{{ post.created_at }}</time>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     {% endfor %}
+    {% include "blog/pagination.html" %}
 {% endblock %}
-{% include "blog/pagination.html" %}

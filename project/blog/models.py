@@ -31,3 +31,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    name = models.CharField('Name', max_length=30, default='Anonymous'),
+    text = models.TextField('Comment'),
+    post = models.ForeignKey(Post, verbose_name='Linked Post', on_delete=models.PROTECT),
+    created_at = models.DateTimeField('Created at', default=timezone.now),
+
+    def __str__(self):
+        return self.text[:10]

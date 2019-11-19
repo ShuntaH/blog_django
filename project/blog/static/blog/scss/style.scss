@@ -5,6 +5,7 @@ $border-color: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
 // blog/base.html
 body {
   font-family: 'M PLUS 1p', sans-serif;
+  letter-spacing: 0.05rem;
 }
 
 .wrapper {
@@ -17,24 +18,44 @@ header {
 
     .navbar-brand {
       padding: 0 140px;
+
+      .navbar-item {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.15rem;
+      }
     }
   }
 
   .navbar-menu {
     padding: 14px 140px;
   }
+
+  .hero {
+    .hero-body {
+      padding: 0 140px;
+    }
+  }
+
 }
 
 section.wrapper {
   padding: 80px 140px 30px;
 
   .main-content {
-// post_list.html
+    // post_list.html
   }
 
   .side-content {
     .profile {
       margin-bottom: 36px;
+
+      .card-header {
+        padding: 14px 10px;
+
+        .card-header-title {
+          padding: 0;
+        }
+      }
     }
 
     .searchbox {
@@ -47,14 +68,14 @@ section.wrapper {
       box-shadow: $border-color;
 
       .category-title {
-        padding:14px 10px;
+        padding: 14px 10px;
 
       }
 
       .category-list {
-        padding: 20px 10px 40px;
+        padding: 10px 14px;
+
         li {
-          padding-left: 10px;
           margin-bottom: 10px;
 
           a {
@@ -88,7 +109,11 @@ section.wrapper {
   }
 
   .card-content {
-    padding: 20px 10px 60px;
+    padding: 20px 14px 50px;
+
+    .post-text {
+      margin-bottom: 36px;
+    }
   }
 
 }
