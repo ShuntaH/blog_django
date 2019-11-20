@@ -1,4 +1,3 @@
-//　記事コンポーネントの間隔は20pxで統一
 $border-color: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
 
 
@@ -33,9 +32,16 @@ header {
   .hero {
     .hero-body {
       padding: 0 140px;
+      font-family: 'Open Sans Condensed', sans-serif;
+      letter-spacing: 0.15rem;
+      .title {
+        font-size: 52px;
+      }
+      .subtitle {
+        font-size: 30px;
+      }
     }
   }
-
 }
 
 section.wrapper {
