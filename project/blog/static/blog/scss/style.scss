@@ -1,0 +1,119 @@
+//　記事コンポーネントの間隔は20pxで統一
+$border-color: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+
+
+// blog/base.html
+body {
+  font-family: 'M PLUS 1p', sans-serif;
+  letter-spacing: 0.05rem;
+}
+
+.wrapper {
+  padding: 0 140px;
+}
+
+header {
+  .navbar {
+    padding: 20px 0;
+
+    .navbar-brand {
+      padding: 0 140px;
+
+      .navbar-item {
+        font-family: 'Open Sans Condensed', sans-serif;
+        letter-spacing: 0.15rem;
+      }
+    }
+  }
+
+  .navbar-menu {
+    padding: 14px 140px;
+  }
+
+  .hero {
+    .hero-body {
+      padding: 0 140px;
+    }
+  }
+
+}
+
+section.wrapper {
+  padding: 80px 140px 30px;
+
+  .main-content {
+    // post_list.html
+  }
+
+  .side-content {
+    .profile {
+      margin-bottom: 36px;
+
+      .card-header {
+        padding: 14px 10px;
+
+        .card-header-title {
+          padding: 0;
+        }
+      }
+    }
+
+    .searchbox {
+      margin-bottom: 36px;
+    }
+
+    .category {
+      padding: 0;
+      margin-bottom: 36px;
+      box-shadow: $border-color;
+
+      .category-title {
+        padding: 14px 10px;
+
+      }
+
+      .category-list {
+        padding: 10px 14px;
+
+        li {
+          margin-bottom: 10px;
+
+          a {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//blog/post_list.html
+
+.card {
+  padding: 0 .5px;
+  margin-bottom: 20px;
+
+  .card-header {
+    padding: 10px;
+
+  }
+
+  .card-image {
+    .list-img {
+      display: block;
+      width: 100%;
+      height: 360px;
+      object-fit: cover; /* この一行を追加するだけ！ */
+    }
+  }
+
+  .card-content {
+    padding: 20px 14px 50px;
+
+    .post-text {
+      margin-bottom: 36px;
+    }
+  }
+
+}

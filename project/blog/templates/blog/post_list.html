@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+    {% for post in post_list %}
+        <div class="card">
+            <header class="card-header">
+                <h2 class="card-header-title has-text-weight-bold is-size-3">{{ post.title }}</h2>
+            </header>
+            <div class="card-image">
+                <figure class="image">
+                    <img class="list-img" src="{{ post.image.url }}" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                    <p class="post-text">{{ post.text | truncatechars:250 }}</p>
+                    <div class="level">
+                        <a class="button is-info level-left" href="{% url 'blog:detail' post.pk %}">Read more</a>
+                        <div class="level-right">Created At:
+                            <time>{{ post.created_at }}</time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% include "blog/pagination.html" %}
+{% endblock %}

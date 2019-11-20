@@ -1,0 +1,42 @@
+{# Load the tag library #}
+{% load static bulma_tags %}
+{% load bulma_tags %}
+{% load static %}
+{% load sass_tags %}
+
+<nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+    <ul class="pagination-list">
+        {% if page_obj.has_previous %}
+            <li class="pagination-previous">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+        {% for link_page in page_obj.paginator.page_range %}
+            {% if link_page == page_obj.number %}
+                <li>
+                    <a class="pagination-link
+                              is-current"
+                       href="?page={{ link_page }}"
+                       aria-label="Goto page {{ link_page }}">
+                        {{ link_page }}
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="pagination-link"
+                       href="?page={{ link_page }}"
+                       aria-label="Goto page {{ link_page }}">
+                        {{ link_page }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}>
+            <a class="pagination-next" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        {% endif %}
+    </ul>
+</nav>
