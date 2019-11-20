@@ -7,180 +7,183 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {# Load CSS and JavaScript #}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
-    {% block css %}
-        {#        {% font_awesome %}#}
-        <link rel="stylesheet" href="{% sass_src 'blog/scss/style.scss' %}">
-        <link rel="stylesheet" href="{% static 'bulma/css/style.min.css' %}">
-        {% block extra_css %}{% endblock extra_css %}
-    {% endblock css %}
-    <title>{% block title %}Hosaka.S Blog{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {# Load CSS and JavaScript #}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
+  {% block css %}
+    {#        {% font_awesome %}#}
+    <link rel="stylesheet" href="{% sass_src 'blog/scss/style.scss' %}">
+    <link rel="stylesheet" href="{% static 'bulma/css/style.min.css' %}">
+    {% block extra_css %}{% endblock extra_css %}
+  {% endblock css %}
+  <title>{% block title %}Hosaka.S Blog{% endblock %}</title>
 </head>
 
 
 <body>
 {% block header %}
-    <header>
-        <nav class="navbar has-background-white" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item
+  <header>
+    <nav class="navbar has-background-white" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item
                           is-size-3
                           has-text-weight-semibold
                           has-text-black"
-                   href="{% url 'blog:index' %}">Hosaka.S Blog
-                </a>
-                <a role="button"
-                   class="navbar-burger burger"
-                   aria-label="menu"
-                   aria-expanded="false"
-                   data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-        </nav>
-        <nav id="navbarBasicExample" class="navbar-menu has-background-light">
-            <div class="navbar-start has-text-weight-semibold">
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Travel</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">Thai</a>
-                        <a class="navbar-item">Hongkong</a>
-                        <a class="navbar-item">Italy</a>
-                    </div>
-                </div>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Lifestyle</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">Belongings</a>
-                        <a class="navbar-item">Jobs</a>
-                        <a class="navbar-item">Mind</a>
-                    </div>
-                </div>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Works</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">Frontend</a>
-                        <a class="navbar-item">Backend</a>
-                        <a class="navbar-item">infrastructure</a>
-                    </div>
-                </div>
-                {% if is_superuser %}
-                    <div class="navbar-item is-hoverable">
-                        <a class="navbar-link" href="{% url 'admin:index' %}">Admin</a>
-                    </div>
-                {% endif %}
-            </div>
-        </nav>
-        <section class="hero is-primary is-medium">
-            <div class="hero-body">
-                <h1 class="title">Medium title</h1>
-                <h2 class="subtitle">Medium subtitle</h2>
-            </div>
-        </section>
-    </header>
+           href="{% url 'blog:index' %}">Hosaka.S Blog
+        </a>
+        <a role="button"
+           class="navbar-burger burger"
+           aria-label="menu"
+           aria-expanded="false"
+           data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    </nav>
+    <nav id="navbarBasicExample" class="navbar-menu has-background-light">
+      <div class="navbar-start has-text-weight-semibold">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Travel</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">Thai</a>
+            <a class="navbar-item">Hongkong</a>
+            <a class="navbar-item">Italy</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Lifestyle</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">Belongings</a>
+            <a class="navbar-item">Jobs</a>
+            <a class="navbar-item">Mind</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Works</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">Frontend</a>
+            <a class="navbar-item">Backend</a>
+            <a class="navbar-item">infrastructure</a>
+          </div>
+        </div>
+        {% if is_superuser %}
+          <div class="navbar-item is-hoverable">
+            <a class="navbar-link" href="{% url 'admin:index' %}">Admin</a>
+          </div>
+        {% endif %}
+      </div>
+    </nav>
+    <section class="hero is-primary is-medium">
+      <div class="hero-body">
+        <h1 class="title">Medium title</h1>
+        <h2 class="subtitle">Medium subtitle</h2>
+      </div>
+    </section>
+  </header>
 {% endblock header %}
 
 <section class="wrapper has-background-white-bis">
-    {% block messages %}
-        {% if messages %}
-            <div class="messages columns is-desktop">
-                <div class="column is-4 if-offset-4">
-                    {% for message in messages %}
-                        <div class="message {% if message.tags %}is-{{ message.tags|bulma_message_tag }}{% endif %}">
-                            <div class="message-body">{{ message }}</div>
-                        </div>
-                    {% endfor %}
-                </div>
+  {% block messages %}
+    {% if messages %}
+      <div class="messages columns is-desktop">
+        <div class="column is-4 if-offset-4">
+          {% for message in messages %}
+            <div class="message {% if message.tags %}is-{{ message.tags|bulma_message_tag }}{% endif %}">
+              <div class="message-body">{{ message }}</div>
             </div>
-        {% endif %}
-    {% endblock messages %}
-
-    {% block main-area %}
-        <div class="columns">
-            <div class="column is-two-thirds main-content">
-                {% block content %}
-                {% endblock content %}
-            </div>
-            <div class="column is-narrow"></div>
-            <div class="column side-content">
-                {% block profile %}
-                    <div class="card profile">
-                        <div class="card-header has-background-black">
-                            <p class="card-header-title has-text-white  has-text-weight-bold is-size-5">
-                                Profile
-                            </p>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-left">
-                                    <figure class="image is-64x64">
-                                        <img src="{% static 'blog/images/icon2.jpg' %}" alt="Profile photo">
-                                    </figure>
-                                </div>
-                                <div class="media-content">
-                                    <p class="title is-4">Hosaka.S</p>
-                                    <p class="subtitle is-6">@shuntaH</p>
-                                </div>
-                            </div>
-                            <p class="content">I love Thailand</p>
-                        </div>
-                    </div>
-                {% endblock %}
-                {% block  category %}
-                    <aside class="category">
-                        <p class=" category-title has-text-white  has-text-weight-bold is-size-5 has-background-black">
-                            Category</p>
-                        <ul class="category-list">
-                            {% for category in category_list %}
-                                <li class="has-text-grey">
-                                    <a href="{% url 'blog:category' category.pk %}">
-                                        {{ category }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </aside>
-                {% endblock category %}
-                {% block searchbox %}
-                    <form method="get" action="{% url 'blog:index' %}">
-                        {# actionが空だとdetailページに飛んでしまうので明示的に指定#}
-                        <div class="field has-addons searchbox">
-                            <div class="control">
-                                <label for="searcher">
-                                    <input class="input" id="searcher" name="keyword" type="text"
-                                           placeholder="Find Articles">
-                                </label>
-                            </div>
-                            <div class="control">
-                                <input type="submit" class="button is-primary" value="Search">
-                            </div>
-                        </div>
-                    </form>
-                {% endblock searchbox %}
-            </div>
+          {% endfor %}
         </div>
-    {% endblock main-area %}
+      </div>
+    {% endif %}
+  {% endblock messages %}
+
+  {% block main-area %}
+    <div class="columns">
+      <div class="column is-two-thirds main-content">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      <div class="column is-narrow"></div>
+      <div class="column side-content">
+        {% block profile %}
+          <div class="card profile">
+            <div class="card-header has-background-black">
+              <p class="card-header-title has-text-white  has-text-weight-bold is-size-5">
+                Profile
+              </p>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64">
+                    <img src="{% static 'blog/images/icon2.jpg' %}" alt="Profile photo">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">Hosaka.S</p>
+                  <p class="subtitle is-6">@shuntaH</p>
+                </div>
+              </div>
+              <p class="content">I love Thailand</p>
+            </div>
+          </div>
+        {% endblock %}
+        {% block  category %}
+          <aside class="category">
+            <p class=" category-title has-text-white  has-text-weight-bold is-size-5 has-background-black">
+              Category</p>
+            <ul class="category-list">
+              {% for category in category_list %}
+                <li class="has-text-grey">
+                  <a href="{% url 'blog:category' category.pk %}">
+                    {{ category }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </aside>
+        {% endblock category %}
+        {% block searchbox %}
+          <form method="get" action="{% url 'blog:index' %}">
+            {# actionが空だとdetailページに飛んでしまうので明示的に指定#}
+            <div class="field has-addons searchbox">
+              <div class="control">
+                <label for="searcher">
+                  <input class="input" id="searcher" name="keyword" type="text"
+                         placeholder="Find Articles">
+                </label>
+              </div>
+              <div class="control">
+                <input type="submit" class="button is-primary" value="Search">
+              </div>
+            </div>
+          </form>
+        {% endblock searchbox %}
+      </div>
+    </div>
+  {% endblock main-area %}
 </section>
 
 
 {% block footer %}
-    <footer class="footer has-background-grey-lighter">
-        <div class="content has-text-centered">
-            <p><strong>Blog</strong> by <a href="https://github.com/ShuntaH">Shunta.H</a>.</p>
-        </div>
-    </footer>
+  <footer class="footer has-background-grey-lighter">
+    <div class="content has-text-centered">
+      <p><small>Powered by <strong><a href="https://www.djangoproject.com/">Django</a></strong> |
+        Theme by <strong><a href="https://bulma.io/">Bulma</a></strong>
+      </small></p>
+      <p><small><strong>Blog</strong> by <a href="https://github.com/ShuntaH">Hosaka.S</a></small></p>
+    </div>
+  </footer>
 {% endblock %}
 
 {% block javascript %}
-    {% block extra_javascript %}{% endblock extra_javascript %}
+  {% block extra_javascript %}{% endblock extra_javascript %}
 {% endblock javascript %}
 
 </body>
