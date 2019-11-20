@@ -18,5 +18,7 @@ def url_replace(request, field, value):
 
 @register.filter
 def get_filename(value):
-    """Return the name of file"""
+    """
+    Return the name of file
+    """
     return os.path.basename(value.file.name)
